@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Task2.1</string>
-    <string name="convertButton">Convert</string>
+    <string name="convertButton">Convert Length</string>
     <string name="textviewString">TextView</string>
     <string name="outputString">Enter a decimal to convert</string>
     <array name="unitArray">
