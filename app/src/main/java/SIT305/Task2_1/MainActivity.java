@@ -37,10 +37,8 @@ public class MainActivity extends AppCompatActivity {
         convertButton = findViewById(R.id.button);
         userInputText = findViewById(R.id.editTextNumberDecimal);
         conversionOutputText = findViewById(R.id.textView);
-
         unitSpinner.setSelection(0);
         unitSpinner2.setSelection(0);
-
 
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 double convertedText = Double.parseDouble(InputText);
                 String output = String.valueOf(convertLength(convertedText, selectedUnit1, selectedUnit2));
                 Toast.makeText(MainActivity.this, "Hello, " + output + "!", Toast.LENGTH_LONG).show();
+                conversionOutputText.setText(output + " " + selectedUnit2);
             }
         });
     }
@@ -64,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (toUnit) {
                     case "centimeter":
                         result = userInput * INCH_TO_CM;
+                        break;
+                    case "meter":
+                        result = userInput * INCH_TO_CM * 10;
+                        break;
+                    case "kilometer":
+                        result = userInput * INCH_TO_CM * 100;
                         break;
                     case "foot":
                         result = userInput / 12;
@@ -91,16 +96,28 @@ public class MainActivity extends AppCompatActivity {
                     case "mile":
                         result = userInput / (YARD_TO_CM * 1760);
                         break;
+                    case "meter":
+                        result = userInput / 100;
+                        break;
+                    case "kilometer":
+                        result = userInput / 1000;
+                        break;
                 }
                 break;
 
             case "foot":
                 switch (toUnit) {
-                    case "inch":
-                        result = userInput * 12;
-                        break;
                     case "centimeter":
                         result = userInput * FOOT_TO_CM;
+                        break;
+                    case "meter":
+                        result = userInput * FOOT_TO_CM * 10;
+                        break;
+                    case "kilometer":
+                        result = userInput * FOOT_TO_CM * 100;
+                        break;
+                    case "inch":
+                        result = userInput * 12;
                         break;
                     case "yard":
                         result = userInput / 3;
@@ -113,11 +130,17 @@ public class MainActivity extends AppCompatActivity {
 
             case "yard":
                 switch (toUnit) {
-                    case "inch":
-                        result = userInput * 36;
-                        break;
                     case "centimeter":
                         result = userInput * YARD_TO_CM;
+                        break;
+                    case "meter":
+                        result = userInput * YARD_TO_CM * 10;
+                        break;
+                    case "kilometer":
+                        result = userInput * YARD_TO_CM * 100;
+                        break;
+                    case "inch":
+                        result = userInput * 36;
                         break;
                     case "foot":
                         result = userInput * 3;
@@ -134,13 +157,19 @@ public class MainActivity extends AppCompatActivity {
                         result = userInput * 63360;
                         break;
                     case "centimeter":
-                        result = userInput * (YARD_TO_CM * 1760);
+                        result = userInput * (MILE_TO_KM / 100);
+                        break;
+                    case "meter":
+                        result = userInput * (MILE_TO_KM / 10);
                         break;
                     case "foot":
                         result = userInput * 5280;
                         break;
                     case "yard":
                         result = userInput * 1760;
+                        break;
+                    case "kilometer":
+                        result = userInput * MILE_TO_KM;
                         break;
                 }
                 break;
