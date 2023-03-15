@@ -6,9 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.DecimalFormat;
 
 public class LengthConversionActivity extends AppCompatActivity {
 
@@ -17,16 +17,11 @@ public class LengthConversionActivity extends AppCompatActivity {
     Button convertButton;
     EditText userInputText;
     TextView conversionOutputText;
-    private static final double INCH_TO_CM = 2.54;
-    private static final double FOOT_TO_CM = 30.48;
-    private static final double YARD_TO_CM = 91.44;
-    private static final double MILE_TO_KM = 1.60934;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.length_conversion);
-
-
 
         unitSpinner = findViewById(R.id.spinner2);
         unitSpinner2 = findViewById(R.id.spinner3);
@@ -43,14 +38,19 @@ public class LengthConversionActivity extends AppCompatActivity {
                 String selectedUnit2 = unitSpinner2.getSelectedItem().toString();
                 String InputText = userInputText.getText().toString();
                 double convertedText = Double.parseDouble(InputText);
-                String output = String.valueOf(convertLength(convertedText, selectedUnit1, selectedUnit2));
+                String output = (convertLength(convertedText, selectedUnit1, selectedUnit2));
                 conversionOutputText.setText(output + " " + selectedUnit2);
             }
         });
     }
+
     // Length conversion function
-    public static double convertLength(double userInput, String fromUnit, String toUnit) {
+    public static String convertLength(double userInput, String fromUnit, String toUnit) {
         double result = 0;
+        double INCH_TO_CM = 2.54;
+        double FOOT_TO_CM = 30.48;
+        double YARD_TO_CM = 91.44;
+        double MILE_TO_KM = 1.60934;
 
         switch (fromUnit) {
             case "inch":
@@ -168,7 +168,9 @@ public class LengthConversionActivity extends AppCompatActivity {
                 }
                 break;
         }
-        return result;
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String formattedNumber = decimalFormat.format(result);
+        return formattedNumber;
     }
 }
 

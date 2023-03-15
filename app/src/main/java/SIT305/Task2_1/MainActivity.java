@@ -9,28 +9,42 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button convertButton;
+    Button convertLengthButton;
+    Button convertWeightButton;
+    Button convertTempButton;
 
-    private static final double INCH_TO_CM = 2.54;
-    private static final double FOOT_TO_CM = 30.48;
-    private static final double YARD_TO_CM = 91.44;
-    private static final double MILE_TO_KM = 1.60934;
-    private static final double POUND_TO_KG = 0.453592;
-    private static final double OUNCE_TO_G = 28.3495;
-    private static final double TON_TO_KG = 907.185;
 
+    //////// TO DO: ///////////
+    // 1. Add new layouts for weight and temp conversion
+    // 2. add new java activities for new conversion functionaliies.
+    // 3. Dont forget to add activity to android manifest.
+
+
+
+
+    //////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        convertButton = findViewById(R.id.button);
-        convertButton.setOnClickListener(new View.OnClickListener() {
+        convertLengthButton = findViewById(R.id.button);
+        convertWeightButton = findViewById(R.id.button2);
+        convertTempButton = findViewById(R.id.button3);
+        convertLengthButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LengthConversionActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        convertWeightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, WeightConversionActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Task2.1</string>
-    <string name="convertButton">Convert Length</string>
+    <string name="convertLengthButton">Convert Length</string>
+    <string name="convertWeightButton">Convert Weight</string>
+    <string name="convertTempButton">Convert Temp</string>
     <string name="textviewString">TextView</string>
     <string name="outputString">Enter a decimal to convert</string>
     <array name="unitArray">
@@ -10,6 +12,13 @@
         <item>inch</item>
         <item>foot</item>
         <item>mile</item>
+    </array>
+    <array name="WeightUnitArray">
+        <item>gram</item>
+        <item>kilogram</item>
+        <item>ounce</item>
+        <item>pound</item>
+        <item>ton</item>
     </array>
 
 </resources>
