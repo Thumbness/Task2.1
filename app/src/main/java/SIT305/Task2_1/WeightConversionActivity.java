@@ -1,11 +1,11 @@
 package SIT305.Task2_1;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
@@ -31,16 +31,13 @@ public class WeightConversionActivity extends AppCompatActivity {
         unitSpinner.setSelection(0);
         unitSpinner2.setSelection(0);
 
-        convertButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String selectedUnit1 = unitSpinner.getSelectedItem().toString();
-                String selectedUnit2 = unitSpinner2.getSelectedItem().toString();
-                String InputText = userInputText.getText().toString();
-                double convertedText = Double.parseDouble(InputText);
-                String output = (convertWeight(convertedText, selectedUnit1, selectedUnit2));
-                conversionOutputText.setText(output + " " + selectedUnit2);
-            }
+        convertButton.setOnClickListener(view -> {
+            String selectedUnit1 = unitSpinner.getSelectedItem().toString();
+            String selectedUnit2 = unitSpinner2.getSelectedItem().toString();
+            String InputText = userInputText.getText().toString();
+            double convertedText = Double.parseDouble(InputText);
+            String output = (convertWeight(convertedText, selectedUnit1, selectedUnit2));
+            conversionOutputText.setText(output + " " + selectedUnit2);
         });
     }
 
@@ -55,104 +52,103 @@ public class WeightConversionActivity extends AppCompatActivity {
          double TON_TO_GRAM = 907185;
 
         switch (fromUnit) {
-            case "gram":
+            case "gram/s":
                 switch (toUnit) {
-                    case "gram":
+                    case "gram/s":
                         result = userInput;
                         break;
-                    case "kilogram":
+                    case "kilogram/s":
                         result = userInput * GRAM_TO_KG;
                         break;
-                    case "ounce":
+                    case "ounce/s":
                         result = userInput / OUNCE_TO_GRAM;
                         break;
-                    case "pound":
+                    case "pound/s":
                         result = userInput / POUND_TO_GRAM;
                         break;
-                    case "ton":
+                    case "ton/s":
                         result = userInput / TON_TO_GRAM;
                         break;
                 }
                 break;
-            case "kilogram":
+            case "kilogram/s":
                 switch (toUnit) {
-                    case "gram":
+                    case "gram/s":
                         result = userInput * KG_TO_GRAM;
                         break;
-                    case "kilogram":
+                    case "kilogram/s":
                         result = userInput;
                         break;
-                    case "ounce":
+                    case "ounce/s":
                         result = userInput * 35.274;
                         break;
-                    case "pound":
+                    case "pound/s":
                         result = userInput * 2.20462;
                         break;
-                    case "ton":
+                    case "ton/s":
                         result = userInput / 1000;
                         break;
                 }
                 break;
-            case "ounce":
+            case "ounce/s":
                 switch (toUnit) {
-                    case "gram":
+                    case "gram/s":
                         result = userInput * OUNCE_TO_GRAM;
                         break;
-                    case "kilogram":
+                    case "kilogram/s":
                         result = userInput * OUNCE_TO_GRAM * KG_TO_GRAM;
                         break;
-                    case "ounce":
+                    case "ounce/s":
                         result = userInput;
                         break;
-                    case "pound":
+                    case "pound/s":
                         result = userInput / 16;
                         break;
-                    case "ton":
+                    case "ton/s":
                         result = userInput / 35274;
                         break;
                 }
                 break;
-            case "pound":
+            case "pound/s":
                 switch (toUnit) {
-                    case "gram":
+                    case "gram/s":
                         result = userInput * POUND_TO_GRAM;
                         break;
-                    case "kilogram":
+                    case "kilogram/s":
                         result = userInput * 0.453592;
                         break;
-                    case "ounce":
+                    case "ounce/s":
                         result = userInput * 16;
                         break;
-                    case "pound":
+                    case "pound/s":
                         result = userInput;
                         break;
-                    case "ton":
+                    case "ton/s":
                         result = userInput / 2000;
                         break;
                 }
                 break;
-            case "ton":
+            case "ton/s":
                 switch (toUnit) {
-                    case "gram":
+                    case "gram/s":
                         result = userInput * TON_TO_GRAM;
                         break;
-                    case "kilogram":
+                    case "kilogram/s":
                         result = userInput * 1000;
                         break;
-                    case "ounce":
+                    case "ounce/s":
                         result = userInput * 35274;
                         break;
-                    case "pound":
+                    case "pound/s":
                         result = userInput * 2000;
                         break;
-                    case "ton":
+                    case "ton/s":
                         result = userInput;
                         break;
                 }
                 break;
         }
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        String formattedNumber = decimalFormat.format(result);
-        return formattedNumber;
+        return decimalFormat.format(result);
     }
 }

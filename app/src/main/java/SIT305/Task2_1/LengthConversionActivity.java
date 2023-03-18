@@ -1,11 +1,11 @@
 package SIT305.Task2_1;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
@@ -31,16 +31,13 @@ public class LengthConversionActivity extends AppCompatActivity {
         unitSpinner.setSelection(0);
         unitSpinner2.setSelection(0);
 
-        convertButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String selectedUnit1 = unitSpinner.getSelectedItem().toString();
-                String selectedUnit2 = unitSpinner2.getSelectedItem().toString();
-                String InputText = userInputText.getText().toString();
-                double convertedText = Double.parseDouble(InputText);
-                String output = (convertLength(convertedText, selectedUnit1, selectedUnit2));
-                conversionOutputText.setText(output + " " + selectedUnit2);
-            }
+        convertButton.setOnClickListener(view -> {
+            String selectedUnit1 = unitSpinner.getSelectedItem().toString();
+            String selectedUnit2 = unitSpinner2.getSelectedItem().toString();
+            String InputText = userInputText.getText().toString();
+            double convertedText = Double.parseDouble(InputText);
+            String output = (convertLength(convertedText, selectedUnit1, selectedUnit2));
+            conversionOutputText.setText(output + " " + selectedUnit2);
         });
     }
 
@@ -169,8 +166,7 @@ public class LengthConversionActivity extends AppCompatActivity {
                 break;
         }
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        String formattedNumber = decimalFormat.format(result);
-        return formattedNumber;
+        return decimalFormat.format(result);
     }
 }
 

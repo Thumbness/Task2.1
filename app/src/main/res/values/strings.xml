@@ -14,11 +14,16 @@
         <item>mile</item>
     </array>
     <array name="WeightUnitArray">
-        <item>gram</item>
-        <item>kilogram</item>
-        <item>ounce</item>
-        <item>pound</item>
-        <item>ton</item>
+        <item>gram/s</item>
+        <item>kilogram.s</item>
+        <item>ounce/s</item>
+        <item>pound/s</item>
+        <item>ton/s</item>
+    </array>
+    <array name="TempUnitArray">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
     </array>
 
 </resources>
