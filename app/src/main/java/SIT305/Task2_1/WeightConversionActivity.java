@@ -32,9 +32,11 @@ public class WeightConversionActivity extends AppCompatActivity {
         unitSpinner2.setSelection(0);
 
         convertButton.setOnClickListener(view -> {
+            // Stores selected spinner entries and user input as string
             String selectedUnit1 = unitSpinner.getSelectedItem().toString();
             String selectedUnit2 = unitSpinner2.getSelectedItem().toString();
             String InputText = userInputText.getText().toString();
+            // Typecasts user input to double for conversion function
             double convertedText = Double.parseDouble(InputText);
             String output = (convertWeight(convertedText, selectedUnit1, selectedUnit2));
             conversionOutputText.setText(output + " " + selectedUnit2);
@@ -45,11 +47,11 @@ public class WeightConversionActivity extends AppCompatActivity {
     public static String convertWeight(double userInput, String fromUnit, String toUnit) {
         double result = 0;
 
-         double GRAM_TO_KG = 0.001;
-         double KG_TO_GRAM = 1000;
-         double OUNCE_TO_GRAM = 28.3495;
-         double POUND_TO_GRAM = 453.592;
-         double TON_TO_GRAM = 907185;
+        double GRAM_TO_KG = 0.001;
+        double KG_TO_GRAM = 1000;
+        double OUNCE_TO_GRAM = 28.3495;
+        double POUND_TO_GRAM = 453.592;
+        double TON_TO_GRAM = 907185;
 
         switch (fromUnit) {
             case "gram/s":
@@ -96,7 +98,7 @@ public class WeightConversionActivity extends AppCompatActivity {
                         result = userInput * OUNCE_TO_GRAM;
                         break;
                     case "kilogram/s":
-                        result = userInput * OUNCE_TO_GRAM * KG_TO_GRAM;
+                        result = userInput * OUNCE_TO_GRAM * 1000;
                         break;
                     case "ounce/s":
                         result = userInput;

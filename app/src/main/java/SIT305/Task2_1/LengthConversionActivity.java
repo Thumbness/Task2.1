@@ -32,9 +32,11 @@ public class LengthConversionActivity extends AppCompatActivity {
         unitSpinner2.setSelection(0);
 
         convertButton.setOnClickListener(view -> {
+            // Stores selected spinner entries and user input as string
             String selectedUnit1 = unitSpinner.getSelectedItem().toString();
             String selectedUnit2 = unitSpinner2.getSelectedItem().toString();
             String InputText = userInputText.getText().toString();
+            // Typecasts user input to double for conversion function
             double convertedText = Double.parseDouble(InputText);
             String output = (convertLength(convertedText, selectedUnit1, selectedUnit2));
             conversionOutputText.setText(output + " " + selectedUnit2);

@@ -12,16 +12,10 @@ public class MainActivity extends AppCompatActivity {
     Button convertWeightButton;
     Button convertTempButton;
 
+    /* The main activity hosts 3 buttons for the user to select,
+    depending on which button clicked, function changes to corresponding activity using Intent class.
+     */
 
-    //////// TO DO: ///////////
-    // 1. Add new layouts for weight and temp conversion
-    // 2. add new java activities for new conversion functionaliies.
-    // 3. Dont forget to add activity to android manifest.
-
-
-
-
-    //////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, tempConversionActivity.class);
             startActivity(intent);
         });
-
-        }
     }
+}
 

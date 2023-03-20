@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Task2.1</string>
+    <string name="app_name">Unit Conversion (2.1)</string>
     <string name="convertLengthButton">Convert Length</string>
     <string name="convertWeightButton">Convert Weight</string>
     <string name="convertTempButton">Convert Temp</string>
     <string name="textviewString">TextView</string>
     <string name="outputString">Enter a decimal to convert</string>
+    <string name="fromLabel">Convert from: </string>
+    <string name="toLabel">Convert to: </string>
     <array name="unitArray">
         <item>centimeter</item>
         <item>meter</item>
@@ -15,7 +17,7 @@
     </array>
     <array name="WeightUnitArray">
         <item>gram/s</item>
-        <item>kilogram.s</item>
+        <item>kilogram/s</item>
         <item>ounce/s</item>
         <item>pound/s</item>
         <item>ton/s</item>
