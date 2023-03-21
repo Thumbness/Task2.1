@@ -8,12 +8,12 @@
     <string name="fromLabel">Convert from: </string>
     <string name="toLabel">Convert to: </string>
     <array name="unitArray">
-        <item>centimeter</item>
-        <item>meter</item>
-        <item>kilometer</item>
-        <item>inch</item>
-        <item>foot</item>
-        <item>mile</item>
+        <item>centimeters</item>
+        <item>meters</item>
+        <item>kilometers</item>
+        <item>inches</item>
+        <item>feet</item>
+        <item>miles</item>
     </array>
     <array name="WeightUnitArray">
         <item>gram/s</item>

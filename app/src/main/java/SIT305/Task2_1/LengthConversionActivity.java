@@ -50,118 +50,186 @@ public class LengthConversionActivity extends AppCompatActivity {
         double FOOT_TO_CM = 30.48;
         double YARD_TO_CM = 91.44;
         double MILE_TO_KM = 1.60934;
+        // Meter conversion
+        double METER_TO_CM = 100;
+        double METER_TO_KM = 10;
+        double METER_TO_INCH = 39.3701;
+        double METER_TO_FEET = 3.28084;
+        double METER_TO_YARDS = 1.09361;
+        double METER_TO_MILES = 0.000621371;
+
+        // Kilometer Conversion
+        double KM_TO_CM = 100000;
+        double KM_TO_INCH = 39370.1;
+        double KM_TO_FEET = 3280.84;
+        double KM_TO_YARDS = 1093.61;
+        double KM_TO_MILES = 0.621371;
+        double KM_TO_METERS = 1000;
+
+        // Centimeter Conversion
+        double CM_TO_INCH = 0.393701;
+        double CM_TO_FEET = 0.0328084;
+        double CM_TO_YARDS = 0.0109361;
+        double CM_TO_MILES = 0.00000621371;
+        double CM_TO_METERS = 0.01;
+        double CM_TO_KM = 0.01;
 
         switch (fromUnit) {
-            case "inch":
+            case "meters":
                 switch (toUnit) {
-                    case "centimeter":
+                    case "centimeters":
+                        result = userInput * METER_TO_CM;
+                        break;
+                    case "kilometers":
+                        result = userInput * METER_TO_KM;
+                        break;
+                    case "inches":
+                        result = userInput * METER_TO_INCH;
+                        break;
+                    case "feet":
+                        result = userInput * METER_TO_FEET;
+                        break;
+                    case "yards":
+                        result = userInput * METER_TO_YARDS;
+                        break;
+                    case "miles":
+                        result = userInput * METER_TO_MILES;
+                        break;
+                }
+                break;
+
+            case "kilometers":
+                switch (toUnit) {
+                    case "centimeters":
+                        result = userInput * KM_TO_CM;
+                        break;
+                    case "meters":
+                        result = userInput * KM_TO_METERS;
+                        break;
+                    case "inches":
+                        result = userInput * KM_TO_INCH;
+                        break;
+                    case "feet":
+                        result = userInput * KM_TO_FEET;
+                        break;
+                    case "yards":
+                        result = userInput * KM_TO_YARDS;
+                        break;
+                    case "miles":
+                        result = userInput * KM_TO_MILES;
+                        break;
+                }
+                break;
+            case "inches":
+                switch (toUnit) {
+                    case "centimeters":
                         result = userInput * INCH_TO_CM;
                         break;
-                    case "meter":
+                    case "meters":
                         result = userInput * INCH_TO_CM * 10;
                         break;
-                    case "kilometer":
+                    case "kilometers":
                         result = userInput * INCH_TO_CM * 100;
                         break;
-                    case "foot":
+                    case "feet":
                         result = userInput / 12;
                         break;
-                    case "yard":
+                    case "yards":
                         result = userInput / 36;
                         break;
-                    case "mile":
+                    case "miles":
                         result = userInput / 63360;
                         break;
                 }
                 break;
 
-            case "centimeter":
+            case "centimeters":
                 switch (toUnit) {
-                    case "inch":
-                        result = userInput / INCH_TO_CM;
+                    case "inches":
+                        result = userInput * CM_TO_INCH;
                         break;
-                    case "foot":
-                        result = userInput / FOOT_TO_CM;
+                    case "feet":
+                        result = userInput * CM_TO_FEET;
                         break;
-                    case "yard":
-                        result = userInput / YARD_TO_CM;
+                    case "yards":
+                        result = userInput * CM_TO_YARDS;
                         break;
-                    case "mile":
-                        result = userInput / (YARD_TO_CM * 1760);
+                    case "miles":
+                        result = userInput * CM_TO_MILES;
                         break;
-                    case "meter":
-                        result = userInput / 100;
+                    case "meters":
+                        result = userInput * CM_TO_METERS;
                         break;
-                    case "kilometer":
-                        result = userInput / 1000;
+                    case "kilometers":
+                        result = userInput * CM_TO_KM;
                         break;
                 }
                 break;
 
-            case "foot":
+            case "feet":
                 switch (toUnit) {
-                    case "centimeter":
+                    case "centimeters":
                         result = userInput * FOOT_TO_CM;
                         break;
-                    case "meter":
+                    case "meters":
                         result = userInput * FOOT_TO_CM * 10;
                         break;
-                    case "kilometer":
+                    case "kilometers":
                         result = userInput * FOOT_TO_CM * 100;
                         break;
-                    case "inch":
+                    case "inches":
                         result = userInput * 12;
                         break;
-                    case "yard":
+                    case "yards":
                         result = userInput / 3;
                         break;
-                    case "mile":
+                    case "miles":
                         result = userInput / 5280;
                         break;
                 }
                 break;
 
-            case "yard":
+            case "yards":
                 switch (toUnit) {
-                    case "centimeter":
+                    case "centimeters":
                         result = userInput * YARD_TO_CM;
                         break;
-                    case "meter":
+                    case "meters":
                         result = userInput * YARD_TO_CM * 10;
                         break;
-                    case "kilometer":
+                    case "kilometers":
                         result = userInput * YARD_TO_CM * 100;
                         break;
-                    case "inch":
+                    case "inches":
                         result = userInput * 36;
                         break;
-                    case "foot":
+                    case "feet":
                         result = userInput * 3;
                         break;
-                    case "mile":
+                    case "miles":
                         result = userInput / 1760;
                         break;
                 }
                 break;
 
-            case "mile":
+            case "miles":
                 switch (toUnit) {
-                    case "inch":
+                    case "inches":
                         result = userInput * 63360;
                         break;
-                    case "centimeter":
+                    case "centimeters":
                         result = userInput * (MILE_TO_KM / 100);
                         break;
-                    case "meter":
+                    case "meters":
                         result = userInput * (MILE_TO_KM / 10);
                         break;
-                    case "foot":
+                    case "feet":
                         result = userInput * 5280;
                         break;
-                    case "yard":
+                    case "yards":
                         result = userInput * 1760;
                         break;
-                    case "kilometer":
+                    case "kilometers":
                         result = userInput * MILE_TO_KM;
                         break;
                 }
